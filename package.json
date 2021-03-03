@@ -1,0 +1,23 @@
+{
+  "name": "employee_tracker",
+  "version": "1.0.0",
+  "description": "This assignment seeks to fulfill the needs of a business owner who wishes to establish a database that allows him to view and manage departements, roles, and employees. The architecture and design of the solution uses node, inquirer , and MySQL.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acinom813/employee_tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acinom813/employee_tracker/issues"
+  },
+  "homepage": "https://github.com/acinom813/employee_tracker#readme",
+  "dependencies": {
+    "require": "^2.4.20"
+  }
+}
