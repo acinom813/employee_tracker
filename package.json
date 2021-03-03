@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/acinom813/employee_tracker#readme",
   "dependencies": {
+    "connection": "^1.4.0",
+    "console.table": "^0.10.0",
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1",
     "require": "^2.4.20"
   }
 }
