@@ -1,15 +1,13 @@
 //Installed npm package dependencies
 const connection = require("./db/db.js");
-const inquirer = require("inquirer");
+const {prompt} = require('inquirer');
 const consoleTable = require("console.table");
 const mysql = require("mysql");
-const { connect } = require("./db/db.js");
 
 //Prompt user to select course of action
 
 const questions = function() {
-inquirer
-    .prompt ({
+inquirer.prompt ({
         type: "list",
         name: "start",
         message: "Select one of the following employee management options?",
@@ -24,9 +22,7 @@ inquirer
             "add department",
         ]
 
-})
-
-    .then((answer) => {
+  }) .then((answer) => {
     {switch(answer.start) {
         case "view all employees":
             viewAllEmployees();
@@ -58,6 +54,7 @@ inquirer
 });
 
 questions();
+}
 
 //User is able to view all departments currently in database 
 const viewAllDepartments = () => {
@@ -92,8 +89,7 @@ const viewAllEmployees = () => {
 
 //User is able to add a new employee
 const addEmployee = () =>
-    inquirer
-    .prompt ([
+    inquirer.prompt ([
        {
         type: "input",
         message: "Enter employee's first name.",
@@ -105,8 +101,7 @@ const addEmployee = () =>
         name: "lastname"
        }
 
-    ])
-    .then((answer) => {
+    ]).then((answer) => {
         connnection.query =
         "INSERT INTO employee SET ?",
         {
@@ -124,7 +119,6 @@ const addEmployee = () =>
     });
     questions();
 
-};
 
 
 //User is able to grab employees and update their role
@@ -136,8 +130,7 @@ const updateEmployee = () => {
               answer[i].id + " " + answer[i].first_name + " " + answer [i].last.name;
               allemp.push(employeeString);   
         }
-        inquirer
-        .prompt ([
+        inquirer.prompt ([
         {
             type: "list",
             name: "updateEmployRole",
@@ -174,8 +167,7 @@ const updateEmployee = () => {
 
 //User is able to add a new departments in db
 const addDepartment = () => {
-    inquirer
-    .prompt({
+    inquirer.prompt({
         type: "input",
         name: "newdept",
         message:"Enter name of new department."
@@ -200,8 +192,7 @@ const addDepartment = () => {
 //User is able to add a new role/title
 
 const addRole = () => {
-    inquirer
-    .prompt([
+    inquirer.prompt([
         {
             type:"input",
             name: "addtitle",
@@ -233,6 +224,7 @@ const addRole = () => {
                 console.table(answer);
             }
         );
-        questions();
+       
     });
 }
+questions();
