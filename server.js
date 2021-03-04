@@ -1,13 +1,14 @@
 //Installed npm package dependencies
 const connection = require("./db/db.js");
-const {prompt} = require('inquirer');
+const inquirer = require("inquirer")
 const consoleTable = require("console.table");
 const mysql = require("mysql");
-
+const {prompt} = require("inquirer");
 //Prompt user to select course of action
 
 const questions = function() {
-inquirer.prompt ({
+    inquirer.prompt ([
+    {
         type: "list",
         name: "start",
         message: "Select one of the following employee management options?",
@@ -21,8 +22,8 @@ inquirer.prompt ({
             "view all departments",
             "add department",
         ]
-
-  }) .then((answer) => {
+    },
+    ]) .then((answer) => {
     {switch(answer.start) {
         case "view all employees":
             viewAllEmployees();
@@ -54,7 +55,6 @@ inquirer.prompt ({
 });
 
 questions();
-}
 
 //User is able to view all departments currently in database 
 const viewAllDepartments = () => {
@@ -116,8 +116,9 @@ const addEmployee = () =>
             }
             console.table(answer);
         }
+        questions();
     });
-    questions();
+   
 
 
 
