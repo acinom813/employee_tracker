@@ -41,7 +41,7 @@ inquirer
             removeEmployee();
             break;
         case "view all roles":
-            viewAllRoles():
+            viewAllRoles();
             break;
         case "add role":
             addRole ();
