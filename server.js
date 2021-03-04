@@ -196,3 +196,43 @@ const addDepartment = () => {
         questions();
     });
 }
+
+//User is able to add a new role/title
+
+const addRole = () => {
+    inquirer
+    .prompt([
+        {
+            type:"input",
+            name: "addtitle",
+            message:"Enter employee's title"
+        },
+        {
+            type:"input",
+            name: "addsalary",
+            message:"Enter employee's salary"
+        },
+        {
+            type:"input",
+            name: "addDepId",
+            message:"Enter employee's department id",
+        }
+    ])
+    .then((answer) => {
+        connection.query(
+            "INSERT INTO role SET ?",
+            {
+                title: answer.addtitle,
+                salary: answer.addsalary,
+                department_id: answer.addDepID
+            },
+            (err, answer) => {
+                if(err) {
+                    throw err;
+                }
+                console.table(answer);
+            }
+        );
+        questions();
+    });
+}
